@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Cart from './components/Cart';
 import RegLog from './components/RegLog';
 import ProductsList from './components/ProductsList';
+import CategoriesBody from './components/CategoriesBody';
 import NotFound from './components/NotFound';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
 		<Router>
 			<div className='app'>
 				<Header />
+				<CategoriesBody />
 				<Switch>
 					<Route exact path='/' component={Home} />
 					<Route exact path='/cart' component={Cart} />

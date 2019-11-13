@@ -1,13 +1,15 @@
 .header {
 	background-color: var(--hfbg);
 	font-weight: 100;
-	margin: 1rem 3rem;
 	padding: 2rem;
 	font-size: 4rem;
 	border: 1px solid var(--clr);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+	z-index: 100;
+	box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
 	.logo {
 		width: 6rem;
 		height: 6rem;
@@ -37,5 +39,49 @@
 			fill: green;
 			cursor: pointer;
 		}
+	}
+}
+.categories__body {
+	position: absolute;
+	background-color: var(--hfbg-dark);
+	border-bottom: 5px ridge var(--hfbg);
+	box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
+	width: 100%;
+	top: 0;
+	padding: 5rem 3rem 2rem 3rem;
+	left: 0;
+	z-index: 50;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem;
+	.categoriesItem {
+		flex-grow: 1;
+		text-decoration: none;
+		color: var(--clr-y);
+		display: flex;
+		height: 10rem;
+		justify-content: flex-start;
+		align-items: flex-end;
+		border: 1px solid var(--hfbg);
+		border-radius: 50rem 0 50rem 0;
+		padding: 2rem;
+		background-size: cover;
+		background-repeat: no-repeat;
+		> span {
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 5px;
+		}
+	}
+	.flowers {
+		background-image: url('../../img/flowers.jpg');
+	}
+	.seeds {
+		background-image: url('../../img/seeds.jpg');
+	}
+	.fertilizers {
+		background-image: url('../../img/fertilizers.jpg');
+	}
+	.tools {
+		background-image: url('../../img/tools.jpg');
 	}
 }

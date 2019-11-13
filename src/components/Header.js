@@ -11,6 +11,7 @@ const Header = () => {
 			<Link to='/'>
 				<Logo fill='green' />
 			</Link>
+
 			<HeaderMenu />
 		</header>
 	);

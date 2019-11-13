@@ -22,4 +22,6 @@ body,
 	overflow-x: hidden;
 	color: var(--clr);
 	background-color: var(--bg);
+	position: relative;
+	z-index: 1;
 }
