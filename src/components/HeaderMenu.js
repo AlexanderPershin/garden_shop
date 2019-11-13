@@ -30,8 +30,10 @@ const HeaderMenu = () => {
 
 		if (e.target === categoriesRef.current) {
 			dispatch(toggleMenu());
-		} else {
+		} else if (categoriesOpen) {
 			dispatch(closeMenu());
+		} else {
+			return;
 		}
 	};
 
