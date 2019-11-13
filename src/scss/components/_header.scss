@@ -1,0 +1,41 @@
+.header {
+	background-color: var(--hfbg);
+	font-weight: 100;
+	margin: 1rem 3rem;
+	padding: 2rem;
+	font-size: 4rem;
+	border: 1px solid var(--clr);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.logo {
+		width: 6rem;
+		height: 6rem;
+	}
+	.headerMenu {
+		flex-grow: 1;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		> * {
+			color: inherit;
+			font-weight: 100;
+			text-decoration: none;
+		}
+		> *:not(:last-child) {
+			margin-right: 2rem;
+		}
+		> div {
+			font-size: 4rem;
+			background: none;
+			border: none;
+			cursor: pointer;
+			font-weight: 100;
+			outline: none;
+		}
+		> .basket {
+			fill: green;
+			cursor: pointer;
+		}
+	}
+}

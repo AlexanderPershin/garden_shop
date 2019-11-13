@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './scss/style.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Header from './components/Header';
+import Home from './components/Home';
+import Cart from './components/Cart';
+import RegLog from './components/RegLog';
+import ProductsList from './components/ProductsList';
+import NotFound from './components/NotFound';
+
+const App = () => {
+	return (
+		<Router>
+			<div className='app'>
+				<Header />
+				<Switch>
+					<Route exact path='/' component={Home} />
+					<Route exact path='/cart' component={Cart} />
+					<Route exact path='/reglog' component={RegLog} />
+					<Route exact path='/products' component={ProductsList} />
+					<Route component={NotFound} />
+				</Switch>
+			</div>
+		</Router>
+	);
+};
 
 export default App;
