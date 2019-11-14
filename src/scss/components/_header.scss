@@ -27,7 +27,8 @@
 		> *:not(:last-child) {
 			margin-right: 2rem;
 		}
-		> div {
+		.categories__btn,
+		.search {
 			font-size: 4rem;
 			background: none;
 			border: none;
@@ -35,9 +36,17 @@
 			font-weight: 100;
 			outline: none;
 		}
-		> .basket {
+		.basket {
 			fill: green;
 			cursor: pointer;
+			margin-right: 0 !important;
+		}
+	}
+	.categories__btn {
+		width: 22rem;
+		user-select: none;
+		> span {
+			font-size: 2rem;
 		}
 	}
 }

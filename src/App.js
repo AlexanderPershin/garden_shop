@@ -21,6 +21,7 @@ const App = () => {
 					<Route exact path='/cart' component={Cart} />
 					<Route exact path='/reglog' component={RegLog} />
 					<Route exact path='/products' component={ProductsList} />
+					<Route path='/products/:category' component={ProductsList} />
 					<Route component={NotFound} />
 				</Switch>
 			</div>

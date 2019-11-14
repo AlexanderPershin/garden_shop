@@ -2,7 +2,7 @@ import React from 'react';
 import { useSpring, animated, config } from 'react-spring';
 
 const Logo = ({ fill = '#fff' }) => {
-	const [ props, set, stop ] = useSpring(() => ({
+	const [ props, set ] = useSpring(() => ({
 		opacity: 0.5,
 		filter: 'url(#f3)',
 		transform: `translateY(0px)`,
@@ -21,10 +21,8 @@ const Logo = ({ fill = '#fff' }) => {
 		set({ opacity: 0.7, transform: `translateY(-1px)` });
 	};
 
-	const defaultOffset = <feOffset result='offOut' in='SourceAlpha' dx='5' dy='5' />;
 	const AnimatedOffset = animated('feOffset');
 
-	const defaultBlur = <feGaussianBlur result='blurOut' in='offOut' stdDeviation='3' />;
 	const AnimatedBlur = animated('feGaussianBlur');
 
 	return (

@@ -10,13 +10,13 @@ const CategoriesBody = () => {
 
 	const transitions = useTransition(categoriesOpen, null, {
 		from: {
-			opacity: 0,
-			transform: `translateY(0rem)`
+			opacity: 0.7,
+			transform: `translateY(-7rem)`
 		},
 		enter: { opacity: 1, transform: `translateY(8rem)` },
 		leave: {
-			opacity: 0,
-			transform: `translateY(0rem)`
+			opacity: 0.7,
+			transform: `translateY(-7rem)`
 		},
 		config: config.wobbly
 	});

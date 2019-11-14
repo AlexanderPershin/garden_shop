@@ -1,7 +1,10 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const ProductsList = () => {
-	return <div>ProductsList</div>;
+	const { category } = useParams();
+
+	return <div>ProductsList {category}</div>;
 };
 
 export default ProductsList;
