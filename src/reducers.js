@@ -15,6 +15,7 @@ export const cartContent = (state = [], action) => {
 	//cart item example
 	// const cartItem = {
 	// 	name: 'Flower',
+	// category: 'flowers',
 	// 	picture: 'flowers.jpg',
 	// 	price: 100,
 	// 	amount: 1

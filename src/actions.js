@@ -14,6 +14,25 @@ export const closeMenu = () => {
 		type: 'close'
 	};
 };
+// Cart actions
+export const addItem = (payload) => {
+	return {
+		type: 'addItem',
+		payload
+	};
+};
+export const removeItem = (payload) => {
+	return {
+		type: 'removeItem',
+		payload
+	};
+};
+export const destroyItem = (payload) => {
+	return {
+		type: 'destroyItem',
+		payload
+	};
+};
 // Search actions
 export const setSearch = (payload) => {
 	return {

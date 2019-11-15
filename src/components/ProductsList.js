@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import * as actions from '../actions';
 
+import data from '../data.json';
+
 const ProductsList = () => {
 	const { category } = useParams();
 
@@ -15,16 +17,41 @@ const ProductsList = () => {
 		dispatch(clearSearch());
 	};
 
+	const renderList = () => {
+		//cart item example
+		// const cartItem = {
+		// 	name: 'Flower',
+		//  category: 'flowers',
+		// 	picture: 'flowers.jpg',
+		// 	price: 100,
+		// 	amount: 1
+		// };
+
+		return data.map(({ name, category, picture, price, amount }) => (
+			<li className='productList__item' key={name}>
+				<ul>
+					<h3>{name}</h3>
+					<li>Category: {category}</li>
+					<li>Price: {price}</li>
+					<li>Amount: {amount}</li>
+				</ul>
+			</li>
+		));
+	};
+
 	return (
-		<div>
-			<h2>ProductsList</h2> <h3>{category}</h3>{' '}
+		<div className='productList'>
+			<h2 className='productList__heading'>ProductsList</h2> <h3>{category}</h3>{' '}
 			{searchString && (
-				<fieldset>
-					<legend>Search: {searchString}</legend>
-					<div>Here will be search options</div>
-					<button onClick={handleClearSearch}>Clear Search</button>
+				<fieldset className='productList__search'>
+					<legend className='productList__legend'>Search: {searchString}</legend>
+					<div className='productList__options'>Here will be search options</div>
+					<button className='productList__clearBtn' onClick={handleClearSearch}>
+						Clear Search
+					</button>
 				</fieldset>
 			)}
+			<ul className='productList__body'>{renderList()}</ul>
 		</div>
 	);
 };
