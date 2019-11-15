@@ -1,10 +1,12 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import { useTransition, animated, config } from 'react-spring';
 
 const ModalSearch = ({ searchOpened, closeSearch, execSearch }) => {
 	const [ str, setStr ] = useState('');
 
 	const [ inpTxt, setInpTxt ] = useState('type');
+
+	const searchRef = useRef(null);
 
 	const handleSwitchInpTxt = () => {
 		switch (inpTxt) {
@@ -28,6 +30,15 @@ const ModalSearch = ({ searchOpened, closeSearch, execSearch }) => {
 				return 'type';
 		}
 	};
+
+	useEffect(
+		() => {
+			if (searchRef.current) {
+				searchRef.current.focus();
+			}
+		},
+		[ searchRef, searchOpened ]
+	);
 
 	useEffect(
 		() => {
@@ -62,6 +73,7 @@ const ModalSearch = ({ searchOpened, closeSearch, execSearch }) => {
 							onChange={(e) => setStr(e.target.value)}
 							className='search__inp'
 							type='text'
+							ref={searchRef}
 							style={props}
 							placeholder={inpTxt}
 						/>

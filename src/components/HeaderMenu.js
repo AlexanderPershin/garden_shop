@@ -20,6 +20,9 @@ const HeaderMenu = () => {
 
 	const cartBtnRef = useRef(null);
 	const categoriesRef = useRef(null);
+	// triangulars refs
+	const tr1 = useRef(null);
+	const tr2 = useRef(null);
 
 	useEffect(
 		() => {
@@ -37,7 +40,8 @@ const HeaderMenu = () => {
 
 		event.stopPropagation();
 
-		if (event.target === categoriesRef.current) {
+		// If you click on button or icon on button
+		if (event.target === categoriesRef.current || event.target === tr1.current || event.target === tr2.current) {
 			setCartOpened(false);
 			dispatch(toggleMenu());
 		} else if (event.target === cartBtnRef.current) {
@@ -61,16 +65,22 @@ const HeaderMenu = () => {
 	};
 
 	const handleCloseSearch = () => {
-		dispatch(clearSearch());
+		// dispatch(clearSearch());
 		setIsSearch(false);
+	};
+
+	const handleAllClick = () => {
+		dispatch(clearSearch());
 	};
 
 	return (
 		<div className='headerMenu'>
 			<div className='categories__btn' ref={categoriesRef}>
-				Categories {categoriesOpen ? <span>&#9650;</span> : <span>&#9661;</span>}
+				Categories {categoriesOpen ? <span ref={tr1}>&#9650;</span> : <span ref={tr2}>&#9661;</span>}
 			</div>
-			<NavLink to='/products'>All</NavLink>
+			<NavLink to='/products' onClick={handleAllClick}>
+				All
+			</NavLink>
 			<div className='search -shr' onClick={handleOpenSearch}>
 				Search
 			</div>
