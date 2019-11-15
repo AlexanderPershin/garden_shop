@@ -1,6 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import LinkButton from './LinkButton';
 
 import * as actions from '../actions';
 
@@ -48,7 +51,12 @@ const ProductsList = () => {
 
 	return (
 		<div className='productList'>
-			<h2 className='productList__heading'>Our Products</h2> <h3>{category}</h3>{' '}
+			<h2 className='productList__heading'>Our Products</h2>{' '}
+			{category && (
+				<h3 className='productList__category'>
+					Category: {category} | <LinkButton className='linkBtn' to='/products' label='all categories' />
+				</h3>
+			)}{' '}
 			{searchString && (
 				<fieldset className='productList__search'>
 					<legend className='productList__legend'>Search: {searchString}</legend>

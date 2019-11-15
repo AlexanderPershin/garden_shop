@@ -66,12 +66,7 @@ const CartDropDown = ({ cartOpened }) => {
 				>
 					<div className='cartDropdown__top'>
 						<h2 className='cartDropdown__heading'>Your Cart [{cartContent.length + ' items'}]</h2>
-						<LinkButton
-							className='cartDropdown__details'
-							to='/cart'
-							label={'Go To Cart'}
-							showArrow={true}
-						/>
+						<LinkButton className='linkBtn' to='/cart' label={'Go To Cart'} showArrow={true} />
 					</div>
 
 					<ul className='cartDropdown__body'>

@@ -32,3 +32,10 @@ div.cartDropdown {
 		}
 	}
 }
+.linkBtn {
+	text-decoration: none;
+	color: var(--clr-y);
+	background: var(--hfbg-dark);
+	padding: 1rem;
+	white-space: nowrap;
+}
