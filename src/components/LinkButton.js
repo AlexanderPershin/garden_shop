@@ -5,7 +5,7 @@ import { useSpring, animated, config } from 'react-spring';
 const LinkButton = ({ to, className, label, showArrow = true }) => {
 	const AnimatedLink = animated(Link);
 
-	const [ props, set, stop ] = useSpring(() => ({
+	const [ props, set ] = useSpring(() => ({
 		opacity: 0.7,
 		boxShadow: '0 5px 5px rgba(0,0,0,0.3)',
 		transform: `translateY(0px) scale(1)`,

@@ -18,7 +18,7 @@
 		flex-grow: 1;
 		display: flex;
 		justify-content: flex-end;
-		align-items: center;
+		align-items: stretch;
 		> * {
 			color: inherit;
 			font-weight: 100;
@@ -35,6 +35,18 @@
 			cursor: pointer;
 			font-weight: 100;
 			outline: none;
+
+			> * {
+				height: 4rem;
+			}
+		}
+		.search {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			grid-template-columns: 1fr min-content;
+			grid-template-rows: 1fr;
+			font-size: 4rem;
 		}
 		.basket {
 			fill: green;
@@ -49,6 +61,85 @@
 			font-size: 2rem;
 		}
 	}
+}
+
+.search__modal {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+	max-width: 100rem;
+	height: 100vh;
+	flex: 1 1 5rem;
+	font-size: 4rem;
+	font-weight: 100;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	z-index: 1000;
+	> input.search__inp {
+		flex: 5 1 4rem;
+		width: 80%;
+		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+		font-weight: inherit;
+		font-size: inherit;
+		padding-left: 5%;
+		background-color: rgba(255, 255, 255, 0.5);
+		border: none;
+		border-bottom: 2px solid var(--clr);
+		color: var(--clr);
+		outline: none;
+		&:focus {
+			background-color: rgba(255, 255, 255, 0.95);
+			border-bottom: 3px solid var(--clr);
+		}
+		&::placeholder {
+			color: var(--clr);
+			text-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+		}
+	}
+	> div.search__btn {
+		font-family: 'Roboto', Arial, Helvetica, sans-serif;
+		width: 4rem;
+		height: 4rem;
+		border-radius: 100rem;
+		font-weight: inherit;
+		font-size: inherit;
+		text-align: center;
+		padding: 0px;
+		border: 1px solid var(--clr);
+		line-height: 0.7;
+		text-align: center;
+		position: absolute;
+		top: 50vh;
+		left: 0;
+		transform: translate(-115%, -150%);
+		cursor: pointer;
+		box-shadow: 2px 2px 1rem rgba(0, 0, 0, 0.5);
+		text-shadow: 0 0 1rem rgba(255, 255, 255, 0.9);
+		background-color: rgba(255, 255, 255, 0.7);
+		transition: all 0.3s;
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.95);
+		}
+		&:active {
+			background-color: rgba(255, 255, 255, 1);
+			box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+div.search__overlay {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 500;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 .categories__body {
 	position: absolute;

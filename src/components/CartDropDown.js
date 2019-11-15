@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTransition, animated, config } from 'react-spring';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import LinkButton from './LinkButton';

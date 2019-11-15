@@ -14,6 +14,18 @@ export const closeMenu = () => {
 		type: 'close'
 	};
 };
+// Search actions
+export const setSearch = (payload) => {
+	return {
+		type: 'set',
+		payload
+	};
+};
+export const clearSearch = () => {
+	return {
+		type: 'clear'
+	};
+};
 // Login acitons
 export const login = () => {
 	return {

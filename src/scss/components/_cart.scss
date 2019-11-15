@@ -10,8 +10,7 @@ div.cartDropdown {
 	justify-content: space-around;
 	align-items: flex-start;
 	padding: 2rem;
-	border: 5px double var(--hfbg-dark);
-	border-radius: 1rem;
+	border: 1px solid var(--hfbg-dark);
 	transform-origin: top right;
 	> ul {
 		font-weight: 400;

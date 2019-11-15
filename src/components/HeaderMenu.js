@@ -6,14 +6,17 @@ import * as actions from '../actions';
 
 import Basket from '../svg/Basket';
 import CartDropDown from './CartDropDown';
+import ModalSearch from './ModalSearch';
 
-const { closeMenu, toggleMenu } = actions;
+const { closeMenu, toggleMenu, setSearch, clearSearch } = actions;
 
 const HeaderMenu = () => {
 	const categoriesOpen = useSelector((state) => state.categories);
+
 	const dispatch = useDispatch();
 
 	const [ cartOpened, setCartOpened ] = useState(false);
+	const [ isSearch, setIsSearch ] = useState(false);
 
 	const cartBtnRef = useRef(null);
 	const categoriesRef = useRef(null);
@@ -47,15 +50,33 @@ const HeaderMenu = () => {
 		}
 	};
 
+	const handleOpenSearch = () => {
+		setIsSearch(true);
+	};
+
+	const handleSearch = (e, str) => {
+		e.preventDefault();
+		dispatch(setSearch(str));
+		setIsSearch(false);
+	};
+
+	const handleCloseSearch = () => {
+		dispatch(clearSearch());
+		setIsSearch(false);
+	};
+
 	return (
 		<div className='headerMenu'>
 			<div className='categories__btn' ref={categoriesRef}>
 				Categories {categoriesOpen ? <span>&#9650;</span> : <span>&#9661;</span>}
 			</div>
 			<NavLink to='/products'>All</NavLink>
-			<div className='search'>Search</div>
+			<div className='search -shr' onClick={handleOpenSearch}>
+				Search
+			</div>
 			<Basket fill='none' ref={cartBtnRef} anim={true} />
-			{<CartDropDown cartOpened={cartOpened} />}
+			<CartDropDown cartOpened={cartOpened} />
+			<ModalSearch searchOpened={isSearch} closeSearch={handleCloseSearch} execSearch={handleSearch} />
 		</div>
 	);
 };

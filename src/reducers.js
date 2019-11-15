@@ -53,6 +53,7 @@ export const cartContent = (state = [], action) => {
 
 				return newState;
 			}
+			return;
 		}
 		case 'destroyItem': {
 			const alreadyIndex = state.findIndex((item) => item.name === action.payload.name);
@@ -64,7 +65,19 @@ export const cartContent = (state = [], action) => {
 
 				return newState;
 			}
+			return;
 		}
+		default:
+			return state;
+	}
+};
+
+export const searchReducer = (state = '', action) => {
+	switch (action.type) {
+		case 'set':
+			return action.payload;
+		case 'clear':
+			return '';
 		default:
 			return state;
 	}
