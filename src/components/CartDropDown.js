@@ -25,18 +25,6 @@ const CartDropDown = ({ cartOpened }) => {
 		config: config.wobbly
 	});
 
-	const handleTestItem = () => {
-		dispatch({
-			type: 'addItem',
-			payload: {
-				name: 'Flower',
-				picture: 'flowers.jpg',
-				price: 100,
-				amount: 1
-			}
-		});
-	};
-
 	const renderCartList = () => {
 		if (cartContent.length > 0) {
 			return cartContent.map(({ name, picture, price, amount }) => (
@@ -69,10 +57,7 @@ const CartDropDown = ({ cartOpened }) => {
 						<LinkButton className='linkBtn' to='/cart' label={'Go To Cart'} showArrow={true} />
 					</div>
 
-					<ul className='cartDropdown__body'>
-						{renderCartList()}
-						<button onClick={handleTestItem}>Add Test Item</button>
-					</ul>
+					<ul className='cartDropdown__body'>{renderCartList()}</ul>
 				</animated.div>
 			)
 	);

@@ -1,96 +1,149 @@
 export const categMenu = (state = false, action) => {
-	switch (action.type) {
-		case 'toggle':
-			return !state;
-		case 'open':
-			return true;
-		case 'close':
-			return false;
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case 'toggle':
+      return !state;
+    case 'open':
+      return true;
+    case 'close':
+      return false;
+    default:
+      return state;
+  }
+};
+
+// TODO: add setItem aciton to clear all onetyped items from cart and add required amount of that type
+
+export const productsReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'added': {
+      let newState = [...state];
+
+      const itemIndex = newState.findIndex(
+        item => item.name === action.payload.name
+      );
+
+      if (itemIndex >= 0 && newState[itemIndex].amount > 0) {
+        let newItem = newState[itemIndex];
+
+        newState[itemIndex].amount =
+          newState[itemIndex].amount - action.payload.amount;
+
+        return newState;
+      } else {
+        return newState;
+      }
+    }
+
+    case 'removed': {
+      let newState = [...state];
+      const itemIndex = state.findIndex(
+        item => item.name === action.payload.name
+      );
+      newState[itemIndex].amount =
+        state[itemIndex].amount - action.payload.amount;
+
+      return newState;
+    }
+    case 'load': {
+      return action.payload;
+    }
+    default:
+      return state;
+  }
 };
 
 export const cartContent = (state = [], action) => {
-	//cart item example
-	// const cartItem = {
-	// 	name: 'Flower',
-	// category: 'flowers',
-	// 	picture: 'flowers.jpg',
-	// 	price: 100,
-	// 	amount: 1
-	// };
+  //cart item example
+  // const cartItem = {
+  // 	name: 'Flower',
+  // category: 'flowers',
+  // 	picture: 'flowers.jpg',
+  // 	price: 100,
+  // 	amount: 1
+  // };
 
-	switch (action.type) {
-		case 'addItem': {
-			// action payload contains item object
-			const { amount } = action.payload;
+  switch (action.type) {
+    case 'addItem': {
+      // TODO: remove amount of added items from database
 
-			const alreadyIndex = state.findIndex((item) => item.name === action.payload.name);
+      // action payload contains item object
+      const { amount } = action.payload;
 
-			let newState = [ ...state ];
+      const alreadyIndex = state.findIndex(
+        item => item.name === action.payload.name
+      );
 
-			if (alreadyIndex !== -1) {
-				newState[alreadyIndex].amount = newState[alreadyIndex].amount + amount;
+      let newState = [...state];
 
-				return newState;
-			}
+      if (alreadyIndex !== -1) {
+        newState[alreadyIndex].amount = newState[alreadyIndex].amount + amount;
 
-			return [ ...state, action.payload ];
-		}
-		case 'removeItem': {
-			// action payload contains item object
+        return newState;
+      }
 
-			const alreadyIndex = state.findIndex((item) => item.name === action.payload.name);
+      return [...state, action.payload];
+    }
+    case 'removeItem': {
+      // TODO: add amount of removed items to database
 
-			let newState = [ ...state ];
+      // action payload contains item object
 
-			if (alreadyIndex !== -1 && newState[alreadyIndex].amount === 1) {
-				newState.splice(alreadyIndex, 1);
+      const alreadyIndex = state.findIndex(
+        item => item.name === action.payload.name
+      );
 
-				return newState;
-			} else if (alreadyIndex !== -1 && newState[alreadyIndex].amount > 1) {
-				newState[alreadyIndex].amount = newState[alreadyIndex].amount - 1;
+      let newState = [...state];
 
-				return newState;
-			}
-			return;
-		}
-		case 'destroyItem': {
-			const alreadyIndex = state.findIndex((item) => item.name === action.payload.name);
+      if (alreadyIndex !== -1 && newState[alreadyIndex].amount === 1) {
+        newState.splice(alreadyIndex, 1);
 
-			let newState = [ ...state ];
+        return newState;
+      } else if (alreadyIndex !== -1 && newState[alreadyIndex].amount > 1) {
+        newState[alreadyIndex].amount = newState[alreadyIndex].amount - 1;
 
-			if (alreadyIndex !== -1) {
-				newState.splice(alreadyIndex, 1);
+        return newState;
+      }
+      return;
+    }
+    case 'destroyItem': {
+      // TODO: add amount of destroyed items to database
 
-				return newState;
-			}
-			return;
-		}
-		default:
-			return state;
-	}
+      const alreadyIndex = state.findIndex(
+        item => item.name === action.payload.name
+      );
+
+      let newState = [...state];
+
+      if (alreadyIndex !== -1) {
+        newState.splice(alreadyIndex, 1);
+
+        return newState;
+      }
+      return;
+    }
+    default:
+      return state;
+  }
 };
 
 export const searchReducer = (state = '', action) => {
-	switch (action.type) {
-		case 'set':
-			return action.payload;
-		case 'clear':
-			return '';
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case 'set':
+      return action.payload;
+    case 'clear':
+      return '';
+    default:
+      return state;
+  }
 };
 
 export const loggedReducer = (state = false, action) => {
-	switch (action.type) {
-		case 'in':
-			return true;
-		case 'out':
-			return false;
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case 'in':
+      return true;
+    case 'out':
+      return false;
+    default:
+      return state;
+  }
 };

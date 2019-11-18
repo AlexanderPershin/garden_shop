@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import * as actions from '../actions';
@@ -11,84 +11,96 @@ import ModalSearch from './ModalSearch';
 const { closeMenu, toggleMenu, setSearch, clearSearch } = actions;
 
 const HeaderMenu = () => {
-	const categoriesOpen = useSelector((state) => state.categories);
+  const history = useHistory();
 
-	const dispatch = useDispatch();
+  const categoriesOpen = useSelector(state => state.categories);
 
-	const [ cartOpened, setCartOpened ] = useState(false);
-	const [ isSearch, setIsSearch ] = useState(false);
+  const dispatch = useDispatch();
 
-	const cartBtnRef = useRef(null);
-	const categoriesRef = useRef(null);
-	// triangulars refs
-	const tr1 = useRef(null);
-	const tr2 = useRef(null);
+  const [cartOpened, setCartOpened] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
 
-	useEffect(
-		() => {
-			document.addEventListener('click', showCategories);
+  const cartBtnRef = useRef(null);
+  const categoriesRef = useRef(null);
+  // triangulars refs
+  const tr1 = useRef(null);
+  const tr2 = useRef(null);
 
-			return () => {
-				document.removeEventListener('click', showCategories);
-			};
-		},
-		[ categoriesOpen, cartOpened ]
-	);
+  useEffect(() => {
+    document.addEventListener('click', showCategories);
 
-	const showCategories = (e) => {
-		const event = e;
+    return () => {
+      document.removeEventListener('click', showCategories);
+    };
+  }, [categoriesOpen, cartOpened]);
 
-		event.stopPropagation();
+  const showCategories = e => {
+    const event = e;
 
-		// If you click on button or icon on button
-		if (event.target === categoriesRef.current || event.target === tr1.current || event.target === tr2.current) {
-			setCartOpened(false);
-			dispatch(toggleMenu());
-		} else if (event.target === cartBtnRef.current) {
-			dispatch(closeMenu());
-			setCartOpened((prev) => !prev);
-		} else if (categoriesOpen) {
-			dispatch(closeMenu());
-		} else {
-			setCartOpened(false);
-		}
-	};
+    event.stopPropagation();
 
-	const handleOpenSearch = () => {
-		setIsSearch(true);
-	};
+    // If you click on button or icon on button
+    if (
+      event.target === categoriesRef.current ||
+      event.target === tr1.current ||
+      event.target === tr2.current
+    ) {
+      setCartOpened(false);
+      dispatch(toggleMenu());
+    } else if (event.target === cartBtnRef.current) {
+      dispatch(closeMenu());
+      setCartOpened(prev => !prev);
+    } else if (categoriesOpen) {
+      dispatch(closeMenu());
+    } else {
+      setCartOpened(false);
+    }
+  };
 
-	const handleSearch = (e, str) => {
-		e.preventDefault();
-		dispatch(setSearch(str));
-		setIsSearch(false);
-	};
+  const handleOpenSearch = () => {
+    setIsSearch(true);
+  };
 
-	const handleCloseSearch = () => {
-		// dispatch(clearSearch());
-		setIsSearch(false);
-	};
+  const handleSearch = (e, str) => {
+    e.preventDefault();
+    dispatch(setSearch(str));
+    setIsSearch(false);
+    history.push('/products');
+  };
 
-	const handleAllClick = () => {
-		dispatch(clearSearch());
-	};
+  const handleCloseSearch = () => {
+    setIsSearch(false);
+  };
 
-	return (
-		<div className='headerMenu'>
-			<div className='categories__btn' ref={categoriesRef}>
-				Categories {categoriesOpen ? <span ref={tr1}>&#9650;</span> : <span ref={tr2}>&#9661;</span>}
-			</div>
-			<NavLink to='/products' onClick={handleAllClick}>
-				All
-			</NavLink>
-			<div className='search -shr' onClick={handleOpenSearch}>
-				Search
-			</div>
-			<Basket fill='none' ref={cartBtnRef} anim={true} />
-			<CartDropDown cartOpened={cartOpened} />
-			<ModalSearch searchOpened={isSearch} closeSearch={handleCloseSearch} execSearch={handleSearch} />
-		</div>
-	);
+  const handleAllClick = () => {
+    dispatch(clearSearch());
+  };
+
+  return (
+    <div className='headerMenu'>
+      <div className='categories__btn' ref={categoriesRef}>
+        Categories{' '}
+        {categoriesOpen ? (
+          <span ref={tr1}>&#9650;</span>
+        ) : (
+          <span ref={tr2}>&#9661;</span>
+        )}
+      </div>
+      <NavLink to='/products' onClick={handleAllClick}>
+        All
+      </NavLink>
+      <div className='search -shr' onClick={handleOpenSearch}>
+        Search
+      </div>
+      <Basket fill='none' ref={cartBtnRef} anim={true} />
+      <CartDropDown cartOpened={cartOpened} />
+      <ModalSearch
+        searchOpened={isSearch}
+        closeSearch={handleCloseSearch}
+        execSearch={handleSearch}
+      />
+    </div>
+  );
 };
 
 export default HeaderMenu;
