@@ -19,6 +19,7 @@ const Home = () => {
         arden shop
       </h1>
       <div className='home__content'>
+        <h2 className='home__specHeading'>Our special offers</h2>
         <div className='home__spec'>
           {spec.length > 0 && <Carousel specials={spec} />}
         </div>
