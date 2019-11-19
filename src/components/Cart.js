@@ -1,32 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addItem, removeItem, destroyItem, itemAdded } from '../actions';
+import { addToCart } from '../actions';
 
-import LazyInp from './LazyInp';
+import { getCartItems, getTotalCost, getTotalAmount } from '../helpers';
+
+import AnimBtn from './AnimBtn';
 import CartItem from './CartItem';
 
 const Cart = () => {
-  const cart = useSelector(state => state.cart);
+  const products = useSelector(state => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const item = {
-      name: 'Flower',
-      category: 'flowers',
-      picture: 'flowers.jpg',
-      price: 100,
-      amount: 2
-    };
-
-    const tm = setTimeout(() => {
-      dispatch(addItem(item));
-
-      dispatch(itemAdded(item));
-    }, 500);
-
-    return () => clearTimeout(tm);
-  }, []);
+    console.log('update');
+  }, [products, getTotalAmount, getTotalCost]);
 
   const renderCartList = () => {
     //cart item example
@@ -38,26 +26,44 @@ const Cart = () => {
     // 	amount: 1
     // };
 
-    return cart.map(({ name, category, picture, price, amount }) => (
-      <CartItem
-        style={{ backgroundImage: `url(/img/${picture})` }}
-        className='productList__item'
-        key={name}
-        name={name}
-        category={category}
-        picture={picture}
-        price={price}
-        amount={amount}
-      >
-        {/* children here */}
-      </CartItem>
-    ));
+    return getCartItems(products).map(
+      ({ name, category, picture, price, amount, incart }) => (
+        <CartItem
+          style={{ backgroundImage: `url(/img/${picture})` }}
+          className='productList__item'
+          key={name}
+          name={name}
+          category={category}
+          picture={picture}
+          price={price}
+          amount={amount}
+          incart={incart}
+        >
+          {/* children here */}
+        </CartItem>
+      )
+    );
   };
 
+  const cartAmount = getTotalAmount(products);
+
+  const handleBuyAll = () => {
+    alert(`You've bought ${cartAmount} items`);
+  };
   return (
     <div className='productList'>
       <h2 className='productList__heading'>Your Cart</h2>
+      <h3 className='cart_summary'>
+        <span>Total Price: {getTotalCost(products)}$</span>&nbsp;|&nbsp;
+        <span>In Cart: {cartAmount}</span>
+      </h3>
       <ul className='productList__body'>{renderCartList()}</ul>
+
+      {cartAmount > 0 ? (
+        <AnimBtn className='buyBtn' showArrow={false} onClick={handleBuyAll}>
+          Buy All
+        </AnimBtn>
+      ) : null}
     </div>
   );
 };

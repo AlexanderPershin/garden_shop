@@ -11,115 +11,39 @@ export const categMenu = (state = false, action) => {
   }
 };
 
-// TODO: add setItem aciton to clear all onetyped items from cart and add required amount of that type
-
+// Products and cart reducer; It's made this way to have access to cart content from products and in reverse
 export const productsReducer = (state = [], action) => {
   switch (action.type) {
-    case 'added': {
-      let newState = [...state];
-
-      const itemIndex = newState.findIndex(
-        item => item.name === action.payload.name
-      );
-
-      if (itemIndex >= 0 && newState[itemIndex].amount > 0) {
-        let newItem = newState[itemIndex];
-
-        newState[itemIndex].amount =
-          newState[itemIndex].amount - action.payload.amount;
-
-        return newState;
-      } else {
-        return newState;
-      }
-    }
-
-    case 'removed': {
-      let newState = [...state];
-      const itemIndex = state.findIndex(
-        item => item.name === action.payload.name
-      );
-      newState[itemIndex].amount =
-        state[itemIndex].amount - action.payload.amount;
-
-      return newState;
-    }
     case 'load': {
       return action.payload;
     }
-    default:
-      return state;
-  }
-};
-
-export const cartContent = (state = [], action) => {
-  //cart item example
-  // const cartItem = {
-  // 	name: 'Flower',
-  // category: 'flowers',
-  // 	picture: 'flowers.jpg',
-  // 	price: 100,
-  // 	amount: 1
-  // };
-
-  switch (action.type) {
-    case 'addItem': {
-      // TODO: remove amount of added items from database
-
-      // action payload contains item object
-      const { amount } = action.payload;
-
-      const alreadyIndex = state.findIndex(
+    case 'addtocart': {
+      let newState = [...state];
+      const itmIndex = state.findIndex(
         item => item.name === action.payload.name
       );
 
-      let newState = [...state];
+      const { amount, incart } = action.payload;
 
-      if (alreadyIndex !== -1) {
-        newState[alreadyIndex].amount = newState[alreadyIndex].amount + amount;
+      // const sum = incart + amount;
+      // set(newIncart)
+      // amount = sum - newIncart
 
-        return newState;
-      }
+      const sumAmount =
+        newState[itmIndex].amount +
+        (newState[itmIndex].incart ? newState[itmIndex].incart : 0);
+      const newIncart = action.payload.incart ? action.payload.incart : 0;
+      const newAmount = sumAmount - newIncart;
 
-      return [...state, action.payload];
-    }
-    case 'removeItem': {
-      // TODO: add amount of removed items to database
+      const newItem = {
+        ...newState[itmIndex],
+        amount: newAmount,
+        incart: newIncart
+      };
 
-      // action payload contains item object
+      newState[itmIndex] = newItem;
 
-      const alreadyIndex = state.findIndex(
-        item => item.name === action.payload.name
-      );
-
-      let newState = [...state];
-
-      if (alreadyIndex !== -1 && newState[alreadyIndex].amount === 1) {
-        newState.splice(alreadyIndex, 1);
-
-        return newState;
-      } else if (alreadyIndex !== -1 && newState[alreadyIndex].amount > 1) {
-        newState[alreadyIndex].amount = newState[alreadyIndex].amount - 1;
-
-        return newState;
-      }
-      return;
-    }
-    case 'destroyItem': {
-      // TODO: add amount of destroyed items to database
-
-      const alreadyIndex = state.findIndex(
-        item => item.name === action.payload.name
-      );
-
-      let newState = [...state];
-
-      if (alreadyIndex !== -1) {
-        newState.splice(alreadyIndex, 1);
-
-        return newState;
-      }
-      return;
+      return newState;
     }
     default:
       return state;

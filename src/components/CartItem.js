@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import LazyInp from './LazyInp';
+// import LazyInp from './LazyInp';
 
-import { addItem, removeItem, destroyItem, itemAdded } from '../actions';
+import { addToCart } from '../actions';
 
-const CartItem = ({ name, category, picture, price, amount }) => {
-  const cart = useSelector(state => state.cart);
+const CartItem = ({ style, className, ...item }) => {
+  const { name, category, picture, price, amount, incart } = item;
   const dispatch = useDispatch();
 
-  const [cnt, setCnt] = useState(amount);
-
-  const handleCnt = count => {
-    console.log(count);
-
-    setCnt(count);
+  const handleAmount = e => {
+    dispatch(
+      addToCart({
+        ...item,
+        incart: e.target.valueAsNumber
+      })
+    );
   };
 
   return (
@@ -27,10 +28,17 @@ const CartItem = ({ name, category, picture, price, amount }) => {
         <h3>{name}</h3>
         <li>Category: {category}</li>
         <li>Price: {price}</li>
-        <li>Amount: {amount}</li>
+        <li>Available: {amount}</li>
         <li>
-          Amount:{' '}
-          <LazyInp min={0} max={50} step={1} cnt={cnt} setCnt={handleCnt} />
+          In Cart:{' '}
+          <input
+            type='number'
+            value={incart}
+            step='1'
+            max={amount + incart}
+            min='0'
+            onChange={handleAmount}
+          />
         </li>
       </ul>
     </li>

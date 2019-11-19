@@ -6,24 +6,24 @@ import { Link } from 'react-router-dom';
 import LinkButton from './LinkButton';
 import AnimBtn from './AnimBtn';
 
-import * as actions from '../actions';
+import { addToCart, clearSearch } from '../actions';
+
+import { getCartItems } from '../helpers';
 
 const ProductsList = () => {
   const { category } = useParams();
 
   const searchString = useSelector(state => state.search);
-  const listOfProducts = useSelector(state => state.products);
+  const products = useSelector(state => state.products);
   const dispatch = useDispatch();
-  const { addItem, clearSearch, itemAdded } = actions;
 
   const handleClearSearch = () => {
     dispatch(clearSearch());
   };
 
   const handleAddItem = item => {
-    dispatch(addItem(item));
-
-    dispatch(itemAdded(item));
+    // handle item
+    dispatch(addToCart(item));
   };
 
   const renderList = () => {
@@ -36,7 +36,7 @@ const ProductsList = () => {
     // 	amount: 1
     // };
 
-    return listOfProducts
+    return products
       .filter(item => {
         return item.name.toLowerCase().includes(searchString);
       })
@@ -63,9 +63,11 @@ const ProductsList = () => {
                     category,
                     picture,
                     price,
-                    amount: 1
+                    amount,
+                    incart: 1
                   })
                 }
+                label=''
               >
                 Add To Cart
               </AnimBtn>

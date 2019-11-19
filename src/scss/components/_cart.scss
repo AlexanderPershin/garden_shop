@@ -64,3 +64,24 @@ div.cartDropdown {
     align-content: center;
   }
 }
+.cart_summary {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+.buyBtn {
+  margin: 0 auto;
+  width: 20rem;
+  height: 5rem;
+  font-size: 3rem;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  background-color: var(--hfbg-dark);
+  color: var(--clr-y);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

@@ -6,16 +6,9 @@ export const loadData = data => {
   };
 };
 
-export const itemAdded = item => {
+export const addToCart = item => {
   return {
-    type: 'added',
-    payload: item
-  };
-};
-
-export const itemRemoved = item => {
-  return {
-    type: 'removed',
+    type: 'addtocart',
     payload: item
   };
 };
@@ -36,25 +29,7 @@ export const closeMenu = () => {
     type: 'close'
   };
 };
-// Cart actions
-export const addItem = payload => {
-  return {
-    type: 'addItem',
-    payload
-  };
-};
-export const removeItem = payload => {
-  return {
-    type: 'removeItem',
-    payload
-  };
-};
-export const destroyItem = payload => {
-  return {
-    type: 'destroyItem',
-    payload
-  };
-};
+
 // Search actions
 export const setSearch = payload => {
   return {
