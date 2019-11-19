@@ -1,27 +1,27 @@
 html,
 body,
 #root {
-	height: 100%;
-	font-size: 62.7%;
-	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  height: 100%;
+  font-size: 62.7%;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .app {
-	font-size: 2rem;
-	max-width: 120rem;
-	min-height: 100vh;
-	margin: 0 auto;
-	overflow-x: hidden;
-	color: var(--clr);
-	background-color: var(--bg);
-	position: relative;
-	z-index: 1;
+  font-size: 2rem;
+  max-width: 120rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  color: var(--clr);
+  background-color: var(--bg);
+  position: relative;
+  z-index: 1;
 }

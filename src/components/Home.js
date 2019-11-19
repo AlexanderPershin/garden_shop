@@ -1,33 +1,27 @@
 import React from 'react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { getSpecials } from '../helpers';
 
+import Carousel from './Carousel';
 import LogoSimple from '../svg/LogoSimple';
 
 const Home = () => {
   const products = useSelector(state => state.products);
-  const dispatch = useDispatch();
 
-  const renderSpec = () => {
-    const specs = getSpecials(products);
-
-    return specs.map(item => (
-      <li key={item.name}>
-        {item.name} discount: {item.special}%
-      </li>
-    ));
-  };
+  const spec = getSpecials(products);
 
   return (
     <div className='home'>
-      <h1 className='home__heading productList__heading'>
+      <h1 className='home__heading'>
         <LogoSimple fill='green' />
         arden shop
       </h1>
       <div className='home__content'>
-        <ul className='home__spec'>{renderSpec()}</ul>
+        <div className='home__spec'>
+          {spec.length > 0 && <Carousel specials={spec} />}
+        </div>
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 .home {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 100;
   padding-top: 3rem;
   h1.home__heading {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-weight: 100;
+    font-family: inherit;
+    font-weight: inherit;
     padding-top: 3rem;
     font-size: 6rem;
     display: flex;
@@ -21,6 +21,18 @@
     }
   }
   div.home__content {
+    margin-top: 3rem;
+    flex: 1 1 10rem;
     height: 100%;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    .home__spec {
+      flex: 1 1 10rem;
+      min-height: 50rem;
+      display: flex;
+      justify-content: stretch;
+      align-items: stretch;
+    }
   }
 }

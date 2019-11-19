@@ -26,8 +26,7 @@
     "category": "flowers",
     "picture": "flowers.jpg",
     "price": 340,
-    "amount": 222,
-    "special": 50
+    "amount": 222
   },
   {
     "name": "Flower4",
@@ -69,7 +68,8 @@
     "category": "seeds",
     "picture": "seeds.jpg",
     "price": 15,
-    "amount": 12000
+    "amount": 12000,
+    "special": 10
   },
   {
     "name": "Seeds6",
@@ -111,7 +111,8 @@
     "category": "fertilizers",
     "picture": "fertilizers.jpg",
     "price": 30,
-    "amount": 100
+    "amount": 100,
+    "special": 35
   },
   {
     "name": "Fertilizer5",

@@ -1,0 +1,27 @@
+.carousel {
+  flex: 1 1 10rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+
+  .carousel__active {
+    position: relative;
+    flex: 1 1 10rem;
+    height: 100%;
+    width: 100%;
+  }
+  .carousel__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    flex: 1 1 10rem;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    will-change: opacity;
+  }
+}
