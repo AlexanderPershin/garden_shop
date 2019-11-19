@@ -23,8 +23,6 @@ export const productsReducer = (state = [], action) => {
         item => item.name === action.payload.name
       );
 
-      const { amount, incart } = action.payload;
-
       // const sum = incart + amount;
       // set(newIncart)
       // amount = sum - newIncart
@@ -40,6 +38,31 @@ export const productsReducer = (state = [], action) => {
         amount: newAmount,
         incart: newIncart
       };
+
+      newState[itmIndex] = newItem;
+
+      return newState;
+    }
+    case 'removefromcart': {
+      let newState = [...state];
+
+      const itmIndex = state.findIndex(
+        item => item.name === action.payload.name
+      );
+
+      const sumAmount =
+        newState[itmIndex].amount +
+        (newState[itmIndex].incart ? newState[itmIndex].incart : 0);
+      const newIncart = 0;
+      const newAmount = sumAmount;
+
+      const newItem = {
+        ...newState[itmIndex],
+        amount: newAmount,
+        incart: newIncart
+      };
+
+      delete newItem.incart;
 
       newState[itmIndex] = newItem;
 

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 
 // import LazyInp from './LazyInp';
 
-import { addToCart } from '../actions';
+import { addToCart, removeFromCart } from '../actions';
 
 const CartItem = ({ style, className, ...item }) => {
   const { name, category, picture, price, amount, incart } = item;
@@ -16,6 +16,10 @@ const CartItem = ({ style, className, ...item }) => {
         incart: e.target.valueAsNumber
       })
     );
+  };
+
+  const handleRemove = e => {
+    dispatch(removeFromCart(item));
   };
 
   return (
@@ -39,6 +43,9 @@ const CartItem = ({ style, className, ...item }) => {
             min='0'
             onChange={handleAmount}
           />
+        </li>
+        <li>
+          <button onClick={handleRemove}>Remove &times;</button>
         </li>
       </ul>
     </li>

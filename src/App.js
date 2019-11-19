@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(loadData(data));
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>

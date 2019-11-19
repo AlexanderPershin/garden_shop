@@ -1,163 +1,166 @@
 [
-	{
-		"name": "Flower",
-		"category": "flowers",
-		"picture": "flowers.jpg",
-		"price": 100,
-		"amount": 200
-	},
-	{
-		"name": "Flower1",
-		"category": "flowers",
-		"picture": "flowers.jpg",
-		"price": 150,
-		"amount": 100
-	},
-	{
-		"name": "Flower2",
-		"category": "flowers",
-		"picture": "flowers.jpg",
-		"price": 120,
-		"amount": 23
-	},
-	{
-		"name": "Flower3",
-		"category": "flowers",
-		"picture": "flowers.jpg",
-		"price": 340,
-		"amount": 222
-	},
-	{
-		"name": "Flower4",
-		"category": "flowers",
-		"picture": "flowers.jpg",
-		"price": 1320,
-		"amount": 20
-	},
-	{
-		"name": "Seeds",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 20,
-		"amount": 20000
-	},
-	{
-		"name": "Seeds2",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 10,
-		"amount": 10000
-	},
-	{
-		"name": "Seeds3",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 5,
-		"amount": 30000
-	},
-	{
-		"name": "Seeds4",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 2,
-		"amount": 10000
-	},
-	{
-		"name": "Seeds5",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 15,
-		"amount": 12000
-	},
-	{
-		"name": "Seeds6",
-		"category": "seeds",
-		"picture": "seeds.jpg",
-		"price": 1,
-		"amount": 25300
-	},
-	{
-		"name": "Fertilizer",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 20,
-		"amount": 100
-	},
-	{
-		"name": "Fertilizer1",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 10,
-		"amount": 1020
-	},
-	{
-		"name": "Fertilizer2",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 14,
-		"amount": 1320
-	},
-	{
-		"name": "Fertilizer3",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 11,
-		"amount": 1030
-	},
-	{
-		"name": "Fertilizer4",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 30,
-		"amount": 100
-	},
-	{
-		"name": "Fertilizer5",
-		"category": "fertilizers",
-		"picture": "fertilizers.jpg",
-		"price": 15,
-		"amount": 1030
-	},
-	{
-		"name": "Tool",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 30,
-		"amount": 1200
-	},
-	{
-		"name": "Tool1",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 10,
-		"amount": 12300
-	},
-	{
-		"name": "Tool2",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 24,
-		"amount": 1320
-	},
-	{
-		"name": "Tool3",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 3,
-		"amount": 12002
-	},
-	{
-		"name": "Tool4",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 26,
-		"amount": 1200
-	},
-	{
-		"name": "Tool5",
-		"category": "tools",
-		"picture": "tools.jpg",
-		"price": 16,
-		"amount": 1290
-	}
+  {
+    "name": "Flower",
+    "category": "flowers",
+    "picture": "flowers.jpg",
+    "price": 100,
+    "amount": 200,
+    "special": 20
+  },
+  {
+    "name": "Flower1",
+    "category": "flowers",
+    "picture": "flowers.jpg",
+    "price": 150,
+    "amount": 100
+  },
+  {
+    "name": "Flower2",
+    "category": "flowers",
+    "picture": "flowers.jpg",
+    "price": 120,
+    "amount": 23
+  },
+  {
+    "name": "Flower3",
+    "category": "flowers",
+    "picture": "flowers.jpg",
+    "price": 340,
+    "amount": 222,
+    "special": 50
+  },
+  {
+    "name": "Flower4",
+    "category": "flowers",
+    "picture": "flowers.jpg",
+    "price": 1320,
+    "amount": 20
+  },
+  {
+    "name": "Seeds",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 20,
+    "amount": 20000
+  },
+  {
+    "name": "Seeds2",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 10,
+    "amount": 10000
+  },
+  {
+    "name": "Seeds3",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 5,
+    "amount": 30000
+  },
+  {
+    "name": "Seeds4",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 2,
+    "amount": 10000
+  },
+  {
+    "name": "Seeds5",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 15,
+    "amount": 12000
+  },
+  {
+    "name": "Seeds6",
+    "category": "seeds",
+    "picture": "seeds.jpg",
+    "price": 1,
+    "amount": 25300
+  },
+  {
+    "name": "Fertilizer",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 20,
+    "amount": 100
+  },
+  {
+    "name": "Fertilizer1",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 10,
+    "amount": 1020
+  },
+  {
+    "name": "Fertilizer2",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 14,
+    "amount": 1320
+  },
+  {
+    "name": "Fertilizer3",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 11,
+    "amount": 1030
+  },
+  {
+    "name": "Fertilizer4",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 30,
+    "amount": 100
+  },
+  {
+    "name": "Fertilizer5",
+    "category": "fertilizers",
+    "picture": "fertilizers.jpg",
+    "price": 15,
+    "amount": 1030
+  },
+  {
+    "name": "Tool",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 30,
+    "amount": 1200
+  },
+  {
+    "name": "Tool1",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 10,
+    "amount": 12300
+  },
+  {
+    "name": "Tool2",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 24,
+    "amount": 1320
+  },
+  {
+    "name": "Tool3",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 3,
+    "amount": 12002
+  },
+  {
+    "name": "Tool4",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 26,
+    "amount": 1200,
+    "special": 35
+  },
+  {
+    "name": "Tool5",
+    "category": "tools",
+    "picture": "tools.jpg",
+    "price": 16,
+    "amount": 1290
+  }
 ]

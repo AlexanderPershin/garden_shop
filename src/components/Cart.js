@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { addToCart } from '../actions';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { getCartItems, getTotalCost, getTotalAmount } from '../helpers';
 
@@ -10,11 +8,6 @@ import CartItem from './CartItem';
 
 const Cart = () => {
   const products = useSelector(state => state.products);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log('update');
-  }, [products, getTotalAmount, getTotalCost]);
 
   const renderCartList = () => {
     //cart item example

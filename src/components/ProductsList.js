@@ -1,14 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import LinkButton from './LinkButton';
 import AnimBtn from './AnimBtn';
 
 import { addToCart, clearSearch } from '../actions';
-
-import { getCartItems } from '../helpers';
 
 const ProductsList = () => {
   const { category } = useParams();

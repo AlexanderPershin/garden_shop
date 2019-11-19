@@ -13,6 +13,13 @@ export const addToCart = item => {
   };
 };
 
+export const removeFromCart = item => {
+  return {
+    type: 'removefromcart',
+    payload: item
+  };
+};
+
 // Categories menu actions
 export const toggleMenu = () => {
   return {

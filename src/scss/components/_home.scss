@@ -1,0 +1,26 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  padding-top: 3rem;
+  h1.home__heading {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    padding-top: 3rem;
+    font-size: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-decoration: underline;
+    color: green;
+    .logo {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+  div.home__content {
+    height: 100%;
+  }
+}

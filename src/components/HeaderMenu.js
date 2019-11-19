@@ -27,35 +27,34 @@ const HeaderMenu = () => {
   const tr2 = useRef(null);
 
   useEffect(() => {
+    const showCategories = e => {
+      const event = e;
+
+      event.stopPropagation();
+
+      // If you click on button or icon on button
+      if (
+        event.target === categoriesRef.current ||
+        event.target === tr1.current ||
+        event.target === tr2.current
+      ) {
+        setCartOpened(false);
+        dispatch(toggleMenu());
+      } else if (event.target === cartBtnRef.current) {
+        dispatch(closeMenu());
+        setCartOpened(prev => !prev);
+      } else if (categoriesOpen) {
+        dispatch(closeMenu());
+      } else {
+        setCartOpened(false);
+      }
+    };
     document.addEventListener('click', showCategories);
 
     return () => {
       document.removeEventListener('click', showCategories);
     };
-  }, [categoriesOpen, cartOpened]);
-
-  const showCategories = e => {
-    const event = e;
-
-    event.stopPropagation();
-
-    // If you click on button or icon on button
-    if (
-      event.target === categoriesRef.current ||
-      event.target === tr1.current ||
-      event.target === tr2.current
-    ) {
-      setCartOpened(false);
-      dispatch(toggleMenu());
-    } else if (event.target === cartBtnRef.current) {
-      dispatch(closeMenu());
-      setCartOpened(prev => !prev);
-    } else if (categoriesOpen) {
-      dispatch(closeMenu());
-    } else {
-      setCartOpened(false);
-    }
-  };
+  }, [categoriesOpen, cartOpened, dispatch]);
 
   const handleOpenSearch = () => {
     setIsSearch(true);

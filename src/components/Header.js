@@ -6,15 +6,15 @@ import HeaderMenu from './HeaderMenu';
 import Logo from '../svg/Logo';
 
 const Header = () => {
-	return (
-		<header className='header'>
-			<Link to='/'>
-				<Logo fill='green' />
-			</Link>
+  return (
+    <header className='header'>
+      <Link to='/'>
+        <Logo fill='green' />
+      </Link>
 
-			<HeaderMenu />
-		</header>
-	);
+      <HeaderMenu />
+    </header>
+  );
 };
 
 export default Header;

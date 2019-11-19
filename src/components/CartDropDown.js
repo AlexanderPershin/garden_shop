@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCartItems } from '../helpers';
 import LinkButton from './LinkButton';
 
+import { removeFromCart } from '../actions';
+
 const CartDropDown = ({ cartOpened }) => {
   const products = useSelector(state => state.products);
 
@@ -28,21 +30,24 @@ const CartDropDown = ({ cartOpened }) => {
     config: config.wobbly
   });
 
-  const getAmountInCart = () => {
-    // TODO: reduce products array and find amount of items hasownproperty `incart` and set it into header
+  const handleRemove = item => {
+    dispatch(removeFromCart(item));
   };
 
   const renderCartList = () => {
     if (getCartItems(products).length > 0) {
-      return getCartItems(products).map(
-        ({ name, picture, price, amount, incart }) => (
+      return getCartItems(products).map(item => {
+        const { name, price, incart } = item;
+
+        return (
           <li key={name}>
             <span>Name: {name}</span>&nbsp;|&nbsp;
             <span>Price: {price * incart}$</span>&nbsp;|&nbsp;
             <span>In Cart: {incart}</span>
+            <button onClick={() => handleRemove(item)}>&times;</button>
           </li>
-        )
-      );
+        );
+      });
     } else {
       return <li>Here your purchases will be displayed...</li>;
     }
