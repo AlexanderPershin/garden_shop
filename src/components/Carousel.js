@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTransition, animated, config } from 'react-spring';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
+import { addToCart } from '../actions';
+
+import AnimBtn from './AnimBtn';
+
 const Carousel = ({ specials }) => {
+  const dispatch = useDispatch();
+
   const [index, set] = useState(0);
   const [stopped, setStopped] = useState(false);
 
@@ -12,7 +19,8 @@ const Carousel = ({ specials }) => {
     leave: { opacity: 0.5, transform: `translate3d(100%, 0, 10rem)` },
     perspective: '50rem',
     config: config.molasses,
-    unique: true
+    unique: true,
+    reset: true
   });
 
   useEffect(() => {
@@ -32,6 +40,27 @@ const Carousel = ({ specials }) => {
   };
 
   // TODO: add event listeners for next and prev slides
+  const handlePrev = () => {
+    setStopped(true);
+    if (index > 0) {
+      set(prevIndex => prevIndex - 1);
+    } else if (index === 0) {
+      set(specials.length - 1);
+    } else {
+      set(0);
+    }
+  };
+
+  const handleNext = () => {
+    setStopped(true);
+    if (index < specials.length - 1) {
+      set(prevIndex => prevIndex + 1);
+    } else if (index === specials.length - 1) {
+      set(0);
+    } else {
+      set(specials.length - 1);
+    }
+  };
 
   const calcSpecPrice = (pr = 100, disc = 50) => {
     // Here pr=100 is 100$ price, disc=50 is 50% discount
@@ -59,6 +88,10 @@ const Carousel = ({ specials }) => {
     return dots;
   };
 
+  const handleCartSpecial = item => {
+    dispatch(addToCart({ ...item, incart: 1 }));
+  };
+
   return (
     <div className='carousel'>
       <div className='carousel__active'>
@@ -83,12 +116,28 @@ const Carousel = ({ specials }) => {
                 {calcSpecPrice(item.price, item.special)}$
               </span>
             </div>
+            <div className='carousel__tocart'>
+              <AnimBtn
+                className='carousel__btn'
+                onClick={() => handleCartSpecial(item)}
+                showArrow={false}
+              >
+                Add To Cart
+              </AnimBtn>
+            </div>
           </animated.div>
         ))}
       </div>
       <div className='carousel__ui'>
-        <button className='carousel__left'>prev</button>
-        <button className='carousel__right'>next</button>
+        <button className='carousel__play' onClick={handleStopCarousel}>
+          {stopped ? 'play' : 'pause'}
+        </button>
+        <button className='carousel__left' onClick={handlePrev}>
+          prev
+        </button>
+        <button className='carousel__right' onClick={handleNext}>
+          next
+        </button>
         <div className='carousel__dots'>{renderDots()}</div>
       </div>
     </div>

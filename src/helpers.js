@@ -11,9 +11,15 @@ export const reduceItems = prod => {
   if (prod.length > 0) {
     redTotal = prod.reduce(
       (accum, current) => {
+        // Calculate price considering discount
+        let calcPrice = current.price;
+        if (current.hasOwnProperty('special')) {
+          calcPrice = current.price - current.price * (current.special / 100);
+        }
+
         return {
           incart: accum.incart + current.incart,
-          price: accum.price + current.price * current.incart
+          price: accum.price + calcPrice * current.incart
         };
       },
       { incart: 0, price: 0 }

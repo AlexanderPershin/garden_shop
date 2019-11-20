@@ -39,10 +39,18 @@ const CartDropDown = ({ cartOpened }) => {
       return getCartItems(products).map(item => {
         const { name, price, incart } = item;
 
+        let specDiscount = 0;
+        if (item.hasOwnProperty('special')) {
+          specDiscount = item.special;
+        }
+
         return (
           <li key={name}>
             <span>Name: {name}</span>&nbsp;|&nbsp;
-            <span>Price: {price * incart}$</span>&nbsp;|&nbsp;
+            <span>
+              Price: {price * incart}$ {specDiscount > 0 && `-${specDiscount}%`}
+            </span>
+            &nbsp;|&nbsp;
             <span>In Cart: {incart}</span>
             <button onClick={() => handleRemove(item)}>&times;</button>
           </li>

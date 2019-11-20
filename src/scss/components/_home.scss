@@ -43,4 +43,69 @@
       align-items: stretch;
     }
   }
+
+  .home__about {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    .home__playerWrap {
+      width: 100%;
+      max-width: 90rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .home__player {
+      width: 100%;
+      box-shadow: 0 1rem 1rem 2px rgba(0, 0, 0, 0.5);
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+    }
+    .buttons {
+      > button.play {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100rem;
+        background: var(--hfbg-dark);
+        color: var(--clr-y);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+    .bar {
+      height: 1rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      .bar__content {
+        height: 1rem;
+        width: 2px;
+        background-color: green;
+      }
+      transform: translateY(1rem);
+    }
+    .controls:hover .bar {
+      transform: translateY(0rem);
+    }
+  }
 }

@@ -12,6 +12,8 @@
     flex: 1 1 10rem;
     height: 100%;
     width: 100%;
+    box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+    z-index: 1000;
   }
   .carousel__item {
     position: absolute;
@@ -84,7 +86,8 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     .carousel__left,
-    .carousel__right {
+    .carousel__right,
+    .carousel__play {
       padding: 0;
       height: 3rem;
       width: 5rem;
@@ -93,10 +96,6 @@
       border: none;
       outline: none;
       border-radius: 1000rem;
-    }
-    .carousel__left {
-    }
-    .carousel__right {
     }
     .carousel__dot {
       &:not(:last-child) {
@@ -116,5 +115,23 @@
       border: 3px solid green;
       background-color: lightgreen;
     }
+  }
+  .carousel__tocart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: 10rem;
+    margin-bottom: 5rem;
+    transform: translate(50%, -50%) scale(2);
+  }
+  .carousel__btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-y);
+    background: var(--hfbg-dark);
+    padding: 1rem;
+    white-space: nowrap;
   }
 }
