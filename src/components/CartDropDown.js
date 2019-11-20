@@ -45,12 +45,11 @@ const CartDropDown = ({ cartOpened }) => {
         }
 
         return (
-          <li key={name}>
-            <span>Name: {name}</span>&nbsp;|&nbsp;
+          <li className='cartDropdown__item' key={name}>
+            <span>Name: {name}</span>
             <span>
-              Price: {price * incart}$ {specDiscount > 0 && `-${specDiscount}%`}
+              {price * incart}$ {specDiscount > 0 && `-${specDiscount}%`}
             </span>
-            &nbsp;|&nbsp;
             <span>In Cart: {incart}</span>
             <button onClick={() => handleRemove(item)}>&times;</button>
           </li>

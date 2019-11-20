@@ -9,7 +9,6 @@ import LogoSimple from '../svg/LogoSimple';
 
 const Home = () => {
   const [videoPlay, setVideoPlay] = useState(false);
-  const [hovered, setHovered] = useState(false);
   const [videoTime, setVideoTime] = useState(0);
   const [barWidth, setBarWidth] = useState(0);
 
@@ -24,13 +23,6 @@ const Home = () => {
 
   const handlePlayVideo = () => {
     setVideoPlay(prevPlay => !prevPlay);
-  };
-
-  const handleHoverVideo = () => {
-    setHovered(true);
-  };
-  const handleUnhoverVideo = () => {
-    setHovered(false);
   };
 
   const handleTime = e => {
@@ -48,7 +40,7 @@ const Home = () => {
 
     // e = Mouse click event.
     const rect = event.target.getBoundingClientRect();
-    const { width, left, top } = rect;
+    const { width, left } = rect;
     let x;
 
     if (event.clientX > 0) {
@@ -90,8 +82,6 @@ const Home = () => {
               ref={videoRef}
               loop
               onClick={handlePlayVideo}
-              onMouseOver={handleHoverVideo}
-              onMouseLeave={handleUnhoverVideo}
               onTimeUpdate={handleTime}
             >
               <source src='/img/it-was-all-yellow.mp4' type='video/mp4' />
