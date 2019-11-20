@@ -39,7 +39,7 @@
       min-height: 50rem;
       height: 100%;
       display: flex;
-      justify-content: stretch;
+      justify-content: center;
       align-items: stretch;
     }
   }
@@ -96,7 +96,8 @@
       background-color: rgba(0, 0, 0, 0.5);
       .bar__content {
         height: 100%;
-        width: 2px;
+        width: 0%;
+        transition: all 0.1s;
         background-color: rgba(green, 0.7);
       }
     }

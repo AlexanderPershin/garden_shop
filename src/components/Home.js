@@ -11,8 +11,10 @@ const Home = () => {
   const [videoPlay, setVideoPlay] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [videoTime, setVideoTime] = useState(0);
+  const [barWidth, setBarWidth] = useState(0);
 
   const videoRef = useRef({ current: { currentTime: 0, duration: 10 } });
+  const videoBarRef = useRef(null);
 
   const videoDur = videoRef.current.duration || 10;
 
@@ -33,12 +35,40 @@ const Home = () => {
 
   const handleTime = e => {
     const newTime = e.target.currentTime;
-    setVideoTime(newTime);
+    const newBarWidth = newTime / videoDur;
+
+    videoPlay && setVideoTime(newTime);
+    setBarWidth(newBarWidth * 100);
+  };
+
+  const handleSetTime = e => {
+    const event = e;
+    const previousPlayState = videoPlay;
+    setVideoPlay(false);
+
+    // e = Mouse click event.
+    const rect = event.target.getBoundingClientRect();
+    const { width, left, top } = rect;
+    let x;
+
+    if (event.clientX > 0) {
+      x = event.clientX - left; //x position within the element.
+    } else {
+      x = left;
+    }
+    const persentX = x / width;
+
+    const calculatedTime = videoRef.current.duration * persentX;
+
+    setBarWidth(persentX * 100);
+    setVideoTime(calculatedTime);
+    videoRef.current.currentTime = calculatedTime;
+    previousPlayState && setVideoPlay(true);
   };
 
   useEffect(() => {
     videoPlay ? videoRef.current.play() : videoRef.current.pause();
-  }, [videoPlay, videoTime]);
+  }, [videoPlay, videoTime, barWidth]);
 
   return (
     <div className='home'>
@@ -77,10 +107,10 @@ const Home = () => {
                   {videoPlay ? 'Pause' : 'Play'}
                 </button>
               </div>
-              <div className='bar'>
+              <div className='bar' ref={videoBarRef} onClick={handleSetTime}>
                 <div
                   className='bar__content'
-                  style={{ width: `${(videoTime / videoDur) * 100}%` }}
+                  style={{ width: `${barWidth}%` }}
                 ></div>
               </div>
             </div>

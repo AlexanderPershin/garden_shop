@@ -1,18 +1,21 @@
 .carousel {
   flex: 1 1 30rem;
   min-height: 100%;
+  max-width: 90rem;
   height: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   align-items: stretch;
 
+  box-shadow: 0 1rem 1rem 2px rgba(0, 0, 0, 0.5);
+
   .carousel__active {
+    overflow: hidden;
     position: relative;
     flex: 1 1 10rem;
     height: 100%;
     width: 100%;
-    box-shadow: 0 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
     z-index: 1000;
   }
   .carousel__item {
