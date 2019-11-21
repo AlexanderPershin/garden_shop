@@ -2,7 +2,7 @@ html,
 body,
 #root {
   height: 100%;
-  font-size: 62.7%;
+  font-size: 62.5%;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
@@ -52,13 +52,29 @@ body::-webkit-scrollbar-thumb {
   border-bottom-right-radius: 100rem;
   border: 2px solid transparent;
   &:hover {
-    border: 2px solid lighten(darkgreen, 20%);
+    border: 2px solid darkgreen;
   }
   &:active {
-    border: 2px solid darkgreen;
+    border: 2px solid lighten(darkgreen, 20%);
   }
 }
 ::selection {
   background-color: green;
   color: rgba(255, 255, 255, 0.7);
+}
+
+@media only screen and (max-width: 745px) {
+  html,
+  body,
+  #root {
+    font-size: 56.5%; // 62.5% from 16px is 10px === 1rem, 56.5% === 9px, 8px is 50%
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  html,
+  body,
+  #root {
+    font-size: 50%; // 62.5% from 16px is 10px === 1rem, 56.5% === 9px, 8px is 50%
+  }
 }

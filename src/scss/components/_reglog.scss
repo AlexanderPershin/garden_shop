@@ -117,3 +117,9 @@
     box-shadow: 2px 1rem 1rem 0 rgba(0, 0, 0, 0.5);
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .reglog__body {
+    min-width: auto;
+  }
+}

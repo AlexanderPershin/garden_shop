@@ -44,7 +44,8 @@ const ProductsList = () => {
       transform: `perspective(500px) translate3d(0px, 0px, 0px)`
     },
     transformOrigin: 'center',
-    config: config.gentle
+    config: config.gentle,
+    reset: true
   });
 
   const renderAnimatedList = () => {
