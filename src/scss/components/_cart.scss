@@ -103,6 +103,109 @@ div.cartDropdown {
     align-content: center;
   }
 }
+
+.cart__item {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: 60% 80%;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
+  border: 5px double var(--hfbg);
+  border-radius: 7px;
+
+  > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .discountWrap {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      filter: drop-shadow(0px 5px 5px rgba(50, 50, 0, 0.5));
+      .discount {
+        background-color: var(--clr-y);
+        color: #fff;
+        padding: 5px;
+        clip-path: polygon(10px 0%, 100% 0%, 100% 100%, 10px 100%, 0 50%);
+      }
+    }
+    .item__heading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-weight: 100;
+    }
+    .item__addBtn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+        color: var(--clr-y);
+        background: var(--hfbg-dark);
+        padding: 1rem;
+        white-space: nowrap;
+      }
+    }
+    .item__price {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 4rem;
+      min-width: 6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .item__amount {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform-origin: 0% 0%;
+      transform: rotate(-90deg) translateX(-50%);
+    }
+    .item__incart {
+      position: absolute;
+      right: 0;
+      top: 5rem;
+      display: flex;
+      flex-direction: column;
+      > input {
+        text-align: center;
+        font-size: 3rem;
+        max-width: 6.5rem;
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        font-weight: 100;
+        background: none;
+        color: var(--clr-y);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        &:focus {
+          outline: 1px solid green;
+        }
+      }
+    }
+  }
+
+  > ul > * {
+    padding: 2px;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
 .cart_summary {
   margin-top: 2rem;
   text-align: center;

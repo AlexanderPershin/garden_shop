@@ -86,6 +86,9 @@
           outline: 2px solid green;
           background-color: rgba(255, 255, 255, 0.8);
         }
+        &:invalid {
+          outline: 2px solid red;
+        }
       }
       & > button {
         padding: 5px 5rem;

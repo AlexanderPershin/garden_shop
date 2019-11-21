@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTrail, animated, config } from 'react-spring';
 
 import LinkButton from './LinkButton';
 import AnimBtn from './AnimBtn';
@@ -23,35 +24,58 @@ const ProductsList = () => {
     dispatch(addToCart(item));
   };
 
-  const renderList = () => {
-    //cart item example
-    // const cartItem = {
-    // 	name: 'Flower',
-    //  category: 'flowers',
-    // 	picture: 'flowers.jpg',
-    // 	price: 100,
-    // 	amount: 1
-    // };
-
+  const getFilteredList = () => {
     return products
       .filter(item => {
         return item.name.toLowerCase().includes(searchString);
       })
       .filter(item => {
         return category ? item.category === category : item;
-      })
-      .map(({ name, category, picture, price, amount }) => (
-        <li
-          style={{ backgroundImage: `url(/img/${picture})` }}
+      });
+  };
+
+  const trail = useTrail(getFilteredList().length, {
+    from: {
+      opacity: 0.5,
+      transform: `perspective(500px) translate3d(50px, -5px, 50px)`
+    },
+    to: {
+      opacity: 1,
+      transform: `perspective(500px) translate3d(0px, 0px, 0px)`
+    },
+    transformOrigin: 'center',
+    config: config.gentle
+  });
+
+  const renderAnimatedList = () => {
+    return trail.map((props, index) => {
+      const {
+        name,
+        category,
+        picture,
+        price,
+        amount,
+        special
+      } = getFilteredList()[index];
+
+      return (
+        <animated.li
+          style={{ ...props, backgroundImage: `url(/img/${picture})` }}
           className='productList__item'
           key={name}
         >
           <ul>
-            <h3>{name}</h3>
-            <li>Category: {category}</li>
-            <li>Price: {price}</li>
-            <li>Amount: {amount}</li>
+            <h3 className='item__heading'>{name}</h3>
+            <li className='item__price'>{price}$</li>
             <li>
+              {special && (
+                <span className='discountWrap'>
+                  <span className='discount'>-{special}%</span>
+                </span>
+              )}
+            </li>
+            <li className='item__amount'>{amount} left</li>
+            <li className='item__addBtn'>
               <AnimBtn
                 showArrow={false}
                 onClick={() =>
@@ -61,6 +85,7 @@ const ProductsList = () => {
                     picture,
                     price,
                     amount,
+                    special: special,
                     incart: 1
                   })
                 }
@@ -70,8 +95,9 @@ const ProductsList = () => {
               </AnimBtn>
             </li>
           </ul>
-        </li>
-      ));
+        </animated.li>
+      );
+    });
   };
 
   return (
@@ -100,7 +126,9 @@ const ProductsList = () => {
           </button>
         </fieldset>
       )}
-      <ul className='productList__body'>{renderList()}</ul>
+      {getFilteredList().length > 0 && (
+        <ul className='productList__body'>{renderAnimatedList()}</ul>
+      )}
     </div>
   );
 };

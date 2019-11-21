@@ -13,13 +13,23 @@ const RegLog = () => {
 
   const handleRegister = e => {
     e.preventDefault();
-    alert('you registered!');
+    const user = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value
+    };
+    alert(`you registered! ${user.name}`);
     dispatch(login());
   };
 
   const handleLogin = e => {
     e.preventDefault();
-    alert('you logged in!');
+    const user = {
+      email: e.target.email.value,
+      password: e.target.password.value
+    };
+
+    alert(`you logged in! ${user.email}`);
     dispatch(login());
   };
 
@@ -31,9 +41,14 @@ const RegLog = () => {
             Please, Enter Your Register Data
           </h1>
           <form className='reglog__regForm' onSubmit={handleRegister}>
-            <input type='text' placeholder='name' />
-            <input type='email' placeholder='email' />
-            <input type='password' placeholder='password' />
+            <input type='text' name='name' placeholder='name' required />
+            <input type='email' name='email' placeholder='email' required />
+            <input
+              type='password'
+              name='password'
+              placeholder='password'
+              required
+            />
             <AnimBtn onClick={() => {}} showArrow={false}>
               Submit
             </AnimBtn>
@@ -47,8 +62,13 @@ const RegLog = () => {
             Please, Enter Your Login&Password
           </h1>
           <form className='reglog__logForm' onSubmit={handleLogin}>
-            <input type='email' placeholder='email' />
-            <input type='password' placeholder='password' />
+            <input type='email' name='email' placeholder='email' required />
+            <input
+              type='password'
+              name='password'
+              placeholder='password'
+              required
+            />
             <AnimBtn onClick={() => {}} showArrow={false}>
               Submit
             </AnimBtn>

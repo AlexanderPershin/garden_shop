@@ -20,7 +20,7 @@ const Cart = () => {
     // };
 
     return getCartItems(products).map(
-      ({ name, category, picture, price, amount, incart }) => (
+      ({ name, category, picture, price, amount, incart, special }) => (
         <CartItem
           style={{ backgroundImage: `url(/img/${picture})` }}
           className='productList__item'
@@ -31,6 +31,7 @@ const Cart = () => {
           price={price}
           amount={amount}
           incart={incart}
+          special={special}
         >
           {/* children here */}
         </CartItem>
