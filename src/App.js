@@ -21,6 +21,8 @@ const App = () => {
     dispatch(loadData(data));
   }, [dispatch]);
 
+  //TODO: Recode search mechanism to use url params instead of props for search string
+
   return (
     <Router>
       <div className='app'>
@@ -30,8 +32,9 @@ const App = () => {
           <Route exact path='/' component={Home} />
           <Route exact path='/cart' component={Cart} />
           <Route exact path='/reglog' component={RegLog} />
+          <Route exact path='/reglog/:enter' component={RegLog} />
           <Route exact path='/products' component={ProductsList} />
-          <Route path='/products/:category' component={ProductsList} />
+          <Route exact path='/products/:category' component={ProductsList} />
           <Route component={NotFound} />
         </Switch>
       </div>

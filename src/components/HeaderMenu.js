@@ -14,6 +14,7 @@ const HeaderMenu = () => {
   const history = useHistory();
 
   const categoriesOpen = useSelector(state => state.categories);
+  const isLogged = useSelector(state => state.logged);
 
   const dispatch = useDispatch();
 
@@ -91,6 +92,11 @@ const HeaderMenu = () => {
       <div className='search -shr' onClick={handleOpenSearch}>
         Search
       </div>
+      {!isLogged ? (
+        <NavLink to='/reglog'>Log In</NavLink>
+      ) : (
+        <NavLink to='/reglog/logout'>Log Out</NavLink>
+      )}
       <Basket fill='none' ref={cartBtnRef} anim={true} />
       <CartDropDown cartOpened={cartOpened} />
       <ModalSearch
