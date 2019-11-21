@@ -7,6 +7,10 @@ import { getSpecials } from '../helpers';
 import Carousel from './Carousel';
 import LogoSimple from '../svg/LogoSimple';
 
+import videoMp4 from '../img/it-was-all-yellow.mp4';
+import videoOgv from '../img/it-was-all-yellow.ogv';
+import videoWebm from '../img/it-was-all-yellow.webm';
+
 const Home = () => {
   const [videoPlay, setVideoPlay] = useState(false);
   const [videoTime, setVideoTime] = useState(0);
@@ -84,18 +88,9 @@ const Home = () => {
               onClick={handlePlayVideo}
               onTimeUpdate={handleTime}
             >
-              <source
-                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.mp4`}
-                type='video/mp4'
-              />
-              <source
-                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.ogv`}
-                type='video/ogg'
-              />
-              <source
-                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.webm`}
-                type='video/webm'
-              />
+              <source src={videoMp4} type='video/mp4' />
+              <source src={videoOgv} type='video/ogg' />
+              <source src={videoWebm} type='video/webm' />
               Sorry, your browser doesn't support embedded videos
             </video>
 
