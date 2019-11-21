@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "81e6d80dcf7e720dab05243909b04bb9",
+    "revision": "8e0ae183a32e9270b1b4814aebc04cf2",
     "url": "/garden_shop/index.html"
   },
   {
-    "revision": "8fca1e55938ccca89621",
+    "revision": "8603e915d8169b863736",
     "url": "/garden_shop/static/css/main.0853fa08.chunk.css"
   },
   {
-    "revision": "b9675ada609489b7ed28",
-    "url": "/garden_shop/static/js/2.a4f8cfa3.chunk.js"
+    "revision": "5818228f6cefddc0b638",
+    "url": "/garden_shop/static/js/2.45a98ecc.chunk.js"
   },
   {
-    "revision": "8fca1e55938ccca89621",
-    "url": "/garden_shop/static/js/main.d9839f49.chunk.js"
+    "revision": "8603e915d8169b863736",
+    "url": "/garden_shop/static/js/main.8aeb443e.chunk.js"
   },
   {
     "revision": "088bf9d9a674a45984fa",
@@ -26,6 +26,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "162c26d6491abecfff7d034baaf6dca6",
     "url": "/garden_shop/static/media/flowers.162c26d6.jpg"
+  },
+  {
+    "revision": "06c63a3945a61eded28b5a7dcd98bf1a",
+    "url": "/garden_shop/static/media/it-was-all-yellow.06c63a39.mp4"
+  },
+  {
+    "revision": "10e5a5028043f84b86674857eeb1e0cf",
+    "url": "/garden_shop/static/media/it-was-all-yellow.10e5a502.ogv"
+  },
+  {
+    "revision": "2527f844c941e694365b22bbaa8f72cf",
+    "url": "/garden_shop/static/media/it-was-all-yellow.2527f844.webm"
   },
   {
     "revision": "02f983429bc0ab02d86a847fd559b2f4",
