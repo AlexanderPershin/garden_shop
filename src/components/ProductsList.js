@@ -61,7 +61,10 @@ const ProductsList = () => {
 
       return (
         <animated.li
-          style={{ ...props, backgroundImage: `url(/img/${picture})` }}
+          style={{
+            ...props,
+            backgroundImage: `url(${process.env.PUBLIC_URL}/img/${picture})`
+          }}
           className='productList__item'
           key={name}
         >

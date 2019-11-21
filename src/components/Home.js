@@ -84,9 +84,18 @@ const Home = () => {
               onClick={handlePlayVideo}
               onTimeUpdate={handleTime}
             >
-              <source src='/img/it-was-all-yellow.mp4' type='video/mp4' />
-              <source src='/img/it-was-all-yellow.ogv' type='video/ogg' />
-              <source src='/img/it-was-all-yellow.webm' type='video/webm' />
+              <source
+                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.mp4`}
+                type='video/mp4'
+              />
+              <source
+                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.ogv`}
+                type='video/ogg'
+              />
+              <source
+                src={`${process.env.PUBLIC_URL}/img/it-was-all-yellow.webm`}
+                type='video/webm'
+              />
               Sorry, your browser doesn't support embedded videos
             </video>
 
