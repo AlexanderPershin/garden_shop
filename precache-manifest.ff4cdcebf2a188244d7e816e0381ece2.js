@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "754cf9b8e33df89c904879075dfdd283",
+    "revision": "0ecf96239944a21ebcce95f083cab797",
     "url": "/garden_shop/index.html"
   },
   {
-    "revision": "5f0309a40747844a2e7b",
-    "url": "/garden_shop/static/css/main.4f8d6774.chunk.css"
+    "revision": "567e8b442a4e966e7b63",
+    "url": "/garden_shop/static/css/main.d9f9782b.chunk.css"
   },
   {
-    "revision": "0c76015fef5ebfd80960",
-    "url": "/garden_shop/static/js/2.10e905ca.chunk.js"
+    "revision": "625ae52df6b3ff469d1a",
+    "url": "/garden_shop/static/js/2.15863f65.chunk.js"
   },
   {
-    "revision": "5f0309a40747844a2e7b",
-    "url": "/garden_shop/static/js/main.7eae3bbb.chunk.js"
+    "revision": "567e8b442a4e966e7b63",
+    "url": "/garden_shop/static/js/main.aba4c209.chunk.js"
   },
   {
     "revision": "088bf9d9a674a45984fa",
