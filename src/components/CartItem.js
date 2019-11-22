@@ -24,7 +24,7 @@ const CartItem = ({ style, className, ...item }) => {
   return (
     <li
       style={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/img/${picture})`
+        backgroundImage: `url(${picture})`
       }}
       className='cart__item'
       key={name}

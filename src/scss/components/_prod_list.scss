@@ -71,7 +71,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-position: 60% 80%;
+      background-position: 60% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-origin: border-box;
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.5);
       border: 5px double var(--hfbg);
       border-radius: 7px;
