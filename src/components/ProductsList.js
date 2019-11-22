@@ -71,13 +71,13 @@ const ProductsList = () => {
           <ul>
             <h3 className='item__heading'>{name}</h3>
             <li className='item__price'>{price}$</li>
-            <li>
-              {special && (
+            {special && (
+              <li className='disc'>
                 <span className='discountWrap'>
                   <span className='discount'>-{special}%</span>
                 </span>
-              )}
-            </li>
+              </li>
+            )}
             <li className='item__amount'>{amount} left</li>
             <li className='item__addBtn'>
               <AnimBtn
