@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTrail, animated, config } from 'react-spring';
@@ -9,6 +9,7 @@ import AnimBtn from './AnimBtn';
 import { addToCart, clearSearch } from '../actions';
 
 const ProductsList = () => {
+  const [itemsCount, setItemsCount] = useState(5);
   const { category } = useParams();
 
   const searchString = useSelector(state => state.search);
@@ -25,13 +26,15 @@ const ProductsList = () => {
   };
 
   const getFilteredList = () => {
-    return products
+    const filtered = products
       .filter(item => {
         return item.name.toLowerCase().includes(searchString);
       })
       .filter(item => {
         return category ? item.category === category : item;
       });
+
+    return [...filtered].slice(0, itemsCount);
   };
 
   const trail = useTrail(getFilteredList().length, {
@@ -104,6 +107,10 @@ const ProductsList = () => {
     });
   };
 
+  const loadMore = () => {
+    setItemsCount(prevItemsCount => prevItemsCount + 3);
+  };
+
   return (
     <div className='productList'>
       <h2 className='productList__heading'>Our Products</h2>{' '}
@@ -133,6 +140,13 @@ const ProductsList = () => {
       {getFilteredList().length > 0 && (
         <ul className='productList__body'>{renderAnimatedList()}</ul>
       )}
+      <AnimBtn
+        showArrow={false}
+        className='productList__loadMore'
+        onClick={loadMore}
+      >
+        Load More
+      </AnimBtn>
     </div>
   );
 };

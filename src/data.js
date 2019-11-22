@@ -1,7 +1,7 @@
-import flowerPoster from './img/flowers.jpg';
-import fertilizerPoster from './img/fertilizers.jpg';
-import seedPoster from './img/seeds.jpg';
-import toolsPoster from './img/tools.jpg';
+// import flowerPoster from './img/flowers.jpg';
+// import fertilizerPoster from './img/fertilizers.jpg';
+// import seedPoster from './img/seeds.jpg';
+// import toolsPoster from './img/tools.jpg';
 
 // Real images
 // Flowers
