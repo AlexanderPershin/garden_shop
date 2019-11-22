@@ -102,7 +102,7 @@ const Carousel = ({ specials }) => {
             key={key}
             style={{
               ...props,
-              backgroundImage: `url(/img/${item.picture}`
+              backgroundImage: `url(${item.picture})`
             }}
           >
             <h3>{item.name}</h3>

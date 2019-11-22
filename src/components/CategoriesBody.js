@@ -8,19 +8,6 @@ const categoriesList = ['flowers', 'seeds', 'fertilizers', 'tools'];
 const CategoriesBody = () => {
   const categoriesOpen = useSelector(state => state.categories);
 
-  // const transitions = useTransition(categoriesOpen, null, {
-  // 	from: {
-  // 		opacity: 0.7,
-  // 		transform: `translateY(-7rem)`
-  // 	},
-  // 	enter: { opacity: 1, transform: `translateY(8rem)` },
-  // 	leave: {
-  // 		opacity: 0.7,
-  // 		transform: `translateY(-7rem)`
-  // 	},
-  // 	config: config.wobbly
-  // });
-
   const transitions = useTransition(categoriesOpen, null, {
     from: {
       opacity: 0.7,

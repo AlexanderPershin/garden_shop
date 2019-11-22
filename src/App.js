@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { loadData } from './actions';
 import './scss/style.scss';
 
-import data from './data.json';
+// import data from './data.json';
+import data from './data';
 
 import Header from './components/Header';
 import Home from './components/Home';

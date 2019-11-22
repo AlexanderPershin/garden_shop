@@ -10,6 +10,7 @@ import LogoSimple from '../svg/LogoSimple';
 import videoMp4 from '../img/it-was-all-yellow.mp4';
 import videoOgv from '../img/it-was-all-yellow.ogv';
 import videoWebm from '../img/it-was-all-yellow.webm';
+import videoPoster from '../img/it-was-all-yellow.jpg';
 
 const Home = () => {
   const [videoPlay, setVideoPlay] = useState(false);
@@ -82,7 +83,7 @@ const Home = () => {
           <div className='home__playerWrap'>
             <video
               className='home__player'
-              poster='/img/it-was-all-yellow.jpg'
+              poster={videoPoster}
               ref={videoRef}
               loop
               onClick={handlePlayVideo}
