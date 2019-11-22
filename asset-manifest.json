@@ -1,25 +1,26 @@
 {
   "files": {
-    "main.css": "/garden_shop/static/css/main.0853fa08.chunk.css",
-    "main.js": "/garden_shop/static/js/main.8aeb443e.chunk.js",
-    "main.js.map": "/garden_shop/static/js/main.8aeb443e.chunk.js.map",
+    "main.css": "/garden_shop/static/css/main.3025c380.chunk.css",
+    "main.js": "/garden_shop/static/js/main.e24c21ee.chunk.js",
+    "main.js.map": "/garden_shop/static/js/main.e24c21ee.chunk.js.map",
     "runtime-main.js": "/garden_shop/static/js/runtime-main.36a80b2b.js",
     "runtime-main.js.map": "/garden_shop/static/js/runtime-main.36a80b2b.js.map",
-    "static/js/2.45a98ecc.chunk.js": "/garden_shop/static/js/2.45a98ecc.chunk.js",
-    "static/js/2.45a98ecc.chunk.js.map": "/garden_shop/static/js/2.45a98ecc.chunk.js.map",
+    "static/js/2.7c5343f3.chunk.js": "/garden_shop/static/js/2.7c5343f3.chunk.js",
+    "static/js/2.7c5343f3.chunk.js.map": "/garden_shop/static/js/2.7c5343f3.chunk.js.map",
     "index.html": "/garden_shop/index.html",
-    "precache-manifest.b82a8e0424c66101cda3717d7cd0f672.js": "/garden_shop/precache-manifest.b82a8e0424c66101cda3717d7cd0f672.js",
+    "precache-manifest.fde8cc21737d248520dd7ea6b7c38b1f.js": "/garden_shop/precache-manifest.fde8cc21737d248520dd7ea6b7c38b1f.js",
     "service-worker.js": "/garden_shop/service-worker.js",
-    "static/css/main.0853fa08.chunk.css.map": "/garden_shop/static/css/main.0853fa08.chunk.css.map",
+    "static/css/main.3025c380.chunk.css.map": "/garden_shop/static/css/main.3025c380.chunk.css.map",
     "static/media/style.scss": "/garden_shop/static/media/tools.a5d94020.jpg",
     "static/media/it-was-all-yellow.mp4": "/garden_shop/static/media/it-was-all-yellow.06c63a39.mp4",
     "static/media/it-was-all-yellow.ogv": "/garden_shop/static/media/it-was-all-yellow.10e5a502.ogv",
-    "static/media/it-was-all-yellow.webm": "/garden_shop/static/media/it-was-all-yellow.2527f844.webm"
+    "static/media/it-was-all-yellow.webm": "/garden_shop/static/media/it-was-all-yellow.2527f844.webm",
+    "static/media/it-was-all-yellow.jpg": "/garden_shop/static/media/it-was-all-yellow.868960d5.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.36a80b2b.js",
-    "static/js/2.45a98ecc.chunk.js",
-    "static/css/main.0853fa08.chunk.css",
-    "static/js/main.8aeb443e.chunk.js"
+    "static/js/2.7c5343f3.chunk.js",
+    "static/css/main.3025c380.chunk.css",
+    "static/js/main.e24c21ee.chunk.js"
   ]
 }
